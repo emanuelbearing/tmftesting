@@ -14,7 +14,7 @@
     "/dummy" : {
       "get" : {
         "operationId" : "listDummy",
-        "summary" : "List or find 'Dummies' objects",
+        "summary" : "List or find 'dummies' objects",
         "tags" : [ "dummy" ],
         "parameters" : [ {
           "type" : "string",
