@@ -5,8 +5,8 @@
     "description" : "This is Swagger UI environment generated for the TMF Dummy Management specification",
     "version" : "2.0.0"
   },
-  "host" : "biologeek.orange-labs.fr",
-  "basePath" : "/tmf-api/dummyManagement",
+  "host" : "dummymanagementtmforum.mybluemix.net",
+  "basePath" : "/docs",
   "schemes" : [ "https" ],
   "consumes" : [ "application/json" ],
   "produces" : [ "application/json" ],
@@ -14,7 +14,7 @@
     "/dummy" : {
       "get" : {
         "operationId" : "listDummy",
-        "summary" : "List or find 'dummies' objects",
+        "summary" : "List or find 'Dummies' objects",
         "tags" : [ "dummy" ],
         "parameters" : [ {
           "type" : "string",
