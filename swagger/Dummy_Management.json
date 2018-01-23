@@ -1,0 +1,487 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Dummy Management",
+    "description" : "This is Swagger UI environment generated for the TMF Dummy Management specificationab",
+    "version" : "2.0.0"
+  },
+  "host" : "dummymanagementtmforum.mybluemix.net",
+  "basePath" : "/docs",
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/dummy" : {
+      "get" : {
+        "operationId" : "listDummy",
+        "summary" : "List or find 'Dummies' objects a",
+        "tags" : [ "dummy" ],
+        "parameters" : [ {
+          "type" : "string",
+          "required" : false,
+          "in" : "query",
+          "name" : "fields",
+          "description" : "Comma separated properties to display in response"
+        }, {
+          "type" : "string",
+          "required" : false,
+          "in" : "query",
+          "name" : "contains.abc",
+          "description" : "For filtering: abc  \n- the alphabet"
+        }, {
+          "type" : "integer",
+          "required" : false,
+          "in" : "query",
+          "name" : "contains.numberOfLetters",
+          "description" : "For filtering: "
+        }, {
+          "type" : "string",
+          "required" : false,
+          "in" : "query",
+          "name" : "aggreement.name",
+          "description" : "For filtering: Name of the agreement"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "items" : {
+                "$ref" : "#/definitions/Dummy"
+              },
+              "type" : "array"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createDummy",
+        "summary" : "Creates a 'Dummy'",
+        "tags" : [ "dummy" ],
+        "parameters" : [ {
+          "schema" : {
+            "$ref" : "#/definitions/Dummy_Create"
+          },
+          "required" : true,
+          "in" : "body",
+          "name" : "dummy",
+          "description" : "The Dummy to be created"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/Dummy"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/dummy/{id}" : {
+      "get" : {
+        "operationId" : "retrieveDummy",
+        "summary" : "Retrieves a 'Dummy' by Id",
+        "tags" : [ "dummy" ],
+        "parameters" : [ {
+          "required" : true,
+          "type" : "string",
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Dummy"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "items" : {
+                "$ref" : "#/definitions/Dummy"
+              },
+              "type" : "array"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch" : {
+        "operationId" : "patchDummy",
+        "summary" : "Updates partially a 'Dummy' by Id",
+        "tags" : [ "dummy" ],
+        "parameters" : [ {
+          "required" : true,
+          "type" : "string",
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Dummy"
+        }, {
+          "schema" : {
+            "$ref" : "#/definitions/Dummy_Update"
+          },
+          "required" : true,
+          "in" : "body",
+          "name" : "dummy",
+          "description" : "The Dummy to be updated"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/Dummy"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateDummy",
+        "summary" : "Updates a 'Dummy' by Id",
+        "tags" : [ "dummy" ],
+        "parameters" : [ {
+          "required" : true,
+          "type" : "string",
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Dummy"
+        }, {
+          "schema" : {
+            "$ref" : "#/definitions/Dummy_Update"
+          },
+          "required" : true,
+          "in" : "body",
+          "name" : "dummy",
+          "description" : "The Dummy to be updated"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/Dummy"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteDummy",
+        "summary" : "Deletes a 'Dummy' by Id",
+        "tags" : [ "dummy" ],
+        "parameters" : [ {
+          "required" : true,
+          "type" : "string",
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Dummy"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "Deleted"
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/hub" : {
+      "post" : {
+        "operationId" : "registerListener",
+        "summary" : "Register a listener",
+        "description" : "Sets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.",
+        "tags" : [ "events subscription" ],
+        "parameters" : [ {
+          "name" : "data",
+          "schema" : {
+            "$ref" : "#/definitions/EventSubscriptionInput"
+          },
+          "required" : true,
+          "in" : "body",
+          "description" : "Data containing the callback endpoint to deliver the information"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Subscribed",
+            "schema" : {
+              "$ref" : "#/definitions/EventSubscription"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/hub/{id}" : {
+      "delete" : {
+        "operationId" : "unregisterListener",
+        "summary" : "Unregister a listener",
+        "description" : "Resets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.",
+        "tags" : [ "events subscription" ],
+        "parameters" : [ {
+          "name" : "id",
+          "type" : "string",
+          "required" : true,
+          "in" : "path",
+          "description" : "The id of the registered listener"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Unsubscribed"
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Dummy" : {
+      "type" : "object",
+      "description" : "the person testing the programm",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "href" : {
+          "type" : "string"
+        },
+        "contains" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AnotherClass"
+          }
+        },
+        "aggreement" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AgreementRef"
+          }
+        }
+      }
+    },
+    "Dummy_Create" : {
+      "type" : "object",
+      "description" : "the person testing the programm\nSkipped properties: id,href",
+      "properties" : {
+        "contains" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AnotherClass"
+          }
+        },
+        "aggreement" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AgreementRef"
+          }
+        }
+      }
+    },
+    "Dummy_Update" : {
+      "type" : "object",
+      "description" : "the person testing the programm\nSkipped properties: id,href,id",
+      "properties" : {
+        "contains" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AnotherClass"
+          }
+        },
+        "aggreement" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AgreementRef"
+          }
+        }
+      }
+    },
+    "AnotherClass" : {
+      "type" : "object",
+      "description" : "desciption descripotion",
+      "properties" : {
+        "abc" : {
+          "type" : "string",
+          "description" : "abc  \n- the alphabet"
+        },
+        "numberOfLetters" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "AgreementRef" : {
+      "type" : "object",
+      "description" : "Agreement reference. An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.",
+      "properties" : {
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the agreement"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Identifier of the agreement"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the agreement"
+        }
+      }
+    },
+    "EventSubscription" : {
+      "required" : [ "id", "callback" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Id of the listener"
+        },
+        "callback" : {
+          "type" : "string",
+          "description" : "The callback being registered."
+        },
+        "query" : {
+          "type" : "string",
+          "description" : "additional data to be passed"
+        }
+      }
+    },
+    "EventSubscriptionInput" : {
+      "required" : [ "callback" ],
+      "properties" : {
+        "callback" : {
+          "type" : "string",
+          "description" : "The callback being registered."
+        },
+        "query" : {
+          "type" : "string",
+          "description" : "additional data to be passed"
+        }
+      }
+    },
+    "Error" : {
+      "required" : [ "code", "message" ],
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "description" : "An integer coding the error type. This is given to caller so he can translate them if required."
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "A short localized string that describes the error."
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "(optional) A long localized error description if needed. It can contain precise information about which parameter is missing, or what are the identifier acceptable values."
+        },
+        "infoURL" : {
+          "type" : "string",
+          "description" : "(optional) A URL to online documentation that provides more information about the error."
+        }
+      }
+    }
+  }
+}
