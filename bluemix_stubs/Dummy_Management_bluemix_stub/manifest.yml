@@ -1,6 +1,0 @@
-applications:
-- name: dummy-management
-  host: dummymanagementtmforum
-  memory: 256M
-  services:
-    - tmf-compose-for-mongodb
