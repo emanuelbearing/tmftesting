@@ -1,0 +1,6 @@
+applications:
+- name: customer-management
+  host: customermanagementtmforum
+  memory: 256M
+  services:
+    - tmf-compose-for-mongodb
