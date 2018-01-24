@@ -1,0 +1,6 @@
+applications:
+- name: api-alarm
+  host: alarm
+  memory: 256M
+  services:
+    - tmf-compose-for-mongodb

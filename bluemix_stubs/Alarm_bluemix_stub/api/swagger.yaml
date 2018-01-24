@@ -1,0 +1,678 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: "2.0.0"
+  title: "API Alarm"
+host: "alarm.mybluemix.net"
+basePath: "/docs"
+schemes:
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /alarm:
+    get:
+      tags:
+      - "alarms"
+      summary: "alarmsFind"
+      description: ""
+      operationId: "alarmsFind"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "List of Alarms"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarms"
+    post:
+      tags:
+      - "alarm"
+      summary: "alarmCreate"
+      description: ""
+      operationId: "alarmCreate"
+      parameters:
+      - in: "body"
+        name: "alarm"
+        required: true
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Alarm"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarm"
+  /alarm/{alarmId}/clear:
+    post:
+      tags:
+      - "alarm"
+      summary: "alarmClearbyID"
+      description: ""
+      operationId: "alarmClearbyID"
+      parameters:
+      - name: "alarmId"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "alarm"
+        required: false
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Success alarm"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarm"
+  /alarm/{alarmId}:
+    get:
+      tags:
+      - "alarm"
+      summary: "alarmGet"
+      description: ""
+      operationId: "alarmGet"
+      parameters:
+      - name: "alarmId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "alarm"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarm"
+    delete:
+      tags:
+      - "alarm"
+      summary: "alarmDelete"
+      description: ""
+      operationId: "alarmDelete"
+      parameters:
+      - name: "alarmId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        204:
+          description: "Success"
+      x-swagger-router-controller: "Alarm"
+    patch:
+      tags:
+      - "alarm"
+      summary: "alarmPatch"
+      description: ""
+      operationId: "alarmPatch"
+      parameters:
+      - name: "alarmId"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "alarm"
+        required: true
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Success alarm"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarm"
+  /ackAlarms:
+    post:
+      tags:
+      - "alarms"
+      summary: "ackAlarms"
+      description: ""
+      operationId: "ackAlarms"
+      parameters:
+      - in: "body"
+        name: "alarms"
+        required: true
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Alarms"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarms"
+  /unAckAlarms:
+    post:
+      tags:
+      - "alarms"
+      summary: "unAckAlarmsCreate"
+      description: ""
+      operationId: "unAckAlarmsCreate"
+      parameters:
+      - in: "body"
+        name: "alarms"
+        required: true
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Alarms"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarms"
+  /clearAlarms:
+    post:
+      tags:
+      - "alarms"
+      summary: "clearAlarmsCreate"
+      description: ""
+      operationId: "clearAlarmsCreate"
+      parameters:
+      - in: "body"
+        name: "alarms"
+        required: true
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Alarms"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarms"
+  /commentAlarms:
+    post:
+      tags:
+      - "alarms"
+      summary: "commentAlarmsCreate"
+      description: ""
+      operationId: "commentAlarmsCreate"
+      parameters:
+      - in: "body"
+        name: "alarms"
+        required: true
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Alarms"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarms"
+  /groupAlarms:
+    post:
+      tags:
+      - "alarms"
+      summary: "groupAlarmsCreate"
+      description: ""
+      operationId: "groupAlarmsCreate"
+      parameters:
+      - in: "body"
+        name: "alarms"
+        required: true
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Alarms"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarms"
+  /ungroupAlarms:
+    post:
+      tags:
+      - "alarms"
+      summary: "ungroupAlarmsCreate"
+      description: ""
+      operationId: "ungroupAlarmsCreate"
+      parameters:
+      - in: "body"
+        name: "alarms"
+        required: true
+        schema:
+          $ref: "#/definitions/alarm"
+      responses:
+        201:
+          description: "Alarms"
+          schema:
+            $ref: "#/definitions/alarm"
+      x-swagger-router-controller: "Alarms"
+  /listener/alarmCreateNotification:
+    post:
+      tags:
+      - "notification"
+      summary: "alarmCreateNotification"
+      description: ""
+      operationId: "alarmCreateNotification"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        201:
+          description: "alarm"
+          schema:
+            $ref: "#/definitions/alarmCreateNotification"
+      x-swagger-router-controller: "Notification"
+  /listener/alarmClearedNotification:
+    post:
+      tags:
+      - "notification"
+      summary: "alarmClearedNotification"
+      description: ""
+      operationId: "alarmClearedNotification"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        201:
+          description: "alarm"
+          schema:
+            $ref: "#/definitions/alarmClearedNotification"
+      x-swagger-router-controller: "Notification"
+  /listener/alarmChangeNotification:
+    post:
+      tags:
+      - "notification"
+      summary: "alarmChangeNotification"
+      description: ""
+      operationId: "alarmChangeNotification"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        201:
+          description: "alarm"
+          schema:
+            $ref: "#/definitions/alarmChangeNotification"
+      x-swagger-router-controller: "Notification"
+  /listener/alarmAckStateNotification:
+    post:
+      tags:
+      - "notification"
+      summary: "alarmAckStateNotification"
+      description: ""
+      operationId: "alarmAckStateNotification"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        201:
+          description: "alarm"
+          schema:
+            $ref: "#/definitions/alarmAckStateNotification"
+      x-swagger-router-controller: "Notification"
+  /hub:
+    get:
+      tags:
+      - "hub"
+      summary: "hubFind"
+      description: ""
+      operationId: "hubFind"
+      parameters: []
+      responses:
+        200:
+          description: "List of Hub"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Hub"
+      x-swagger-router-controller: "Hub"
+    post:
+      tags:
+      - "hub"
+      summary: "hubCreate"
+      description: ""
+      operationId: "hubCreate"
+      parameters:
+      - in: "body"
+        name: "hub"
+        required: true
+        schema:
+          $ref: "#/definitions/Hub"
+      responses:
+        201:
+          description: "Hub"
+          schema:
+            $ref: "#/definitions/Hub"
+      x-swagger-router-controller: "Hub"
+  /hub/{hubId}:
+    get:
+      tags:
+      - "hub"
+      summary: "hubGet"
+      description: ""
+      operationId: "hubGet"
+      parameters:
+      - name: "hubId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Hub"
+          schema:
+            $ref: "#/definitions/Hub"
+      x-swagger-router-controller: "Hub"
+    delete:
+      tags:
+      - "hub"
+      summary: "hubDelete"
+      description: ""
+      operationId: "hubDelete"
+      parameters:
+      - name: "hubId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        204:
+          description: "Success"
+      x-swagger-router-controller: "Hub"
+definitions:
+  alarmCreateNotification:
+    type: "object"
+    properties:
+      eventType:
+        type: "string"
+      eventTime:
+        type: "string"
+        format: "date-time"
+      eventId:
+        type: "integer"
+        format: "int64"
+      event:
+        $ref: "#/definitions/alarm"
+    description: "Notification after alarm is created"
+  alarmClearedNotification:
+    type: "object"
+    properties:
+      eventType:
+        type: "string"
+      eventTime:
+        type: "string"
+        format: "date-time"
+      eventId:
+        type: "integer"
+        format: "int64"
+      event:
+        $ref: "#/definitions/alarm"
+    description: "Notification after alarm is cleared"
+  alarmChangeNotification:
+    type: "object"
+    properties:
+      eventType:
+        type: "string"
+      eventTime:
+        type: "string"
+        format: "date-time"
+      eventId:
+        type: "integer"
+        format: "int64"
+      event:
+        $ref: "#/definitions/alarm"
+    description: "Notification after alarm is changed"
+  alarmAckStateNotification:
+    type: "object"
+    properties:
+      eventType:
+        type: "string"
+      eventTime:
+        type: "string"
+        format: "date-time"
+      eventId:
+        type: "integer"
+        format: "int64"
+      event:
+        $ref: "#/definitions/alarm"
+    description: "Notification after alarm ack state is changed"
+  alarm:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+        description: "Identifier of the alarm, determined by the alarm owning system"
+      href:
+        type: "string"
+        description: "A reference to the alarm."
+      '@type':
+        type: "string"
+        description: "The type for this alarm."
+      '@baseType':
+        type: "string"
+        description: "The base type of this alarm."
+      '@schemaLocation':
+        type: "string"
+        description: "A reference to the schema describing this alarm."
+      externalAlarmId:
+        type: "string"
+        description: "An identifier of the alarm in the source system"
+      alarmType:
+        type: "string"
+        description: "Categorize the alarm."
+      perceivedSeverity:
+        type: "string"
+        description: "Lists the possible severities that can be allocated to an Alarm.\
+          \ The values are consistent with ITU-T Recommendation X.733. Once an alarm\
+          \ has been cleared, its perceived severity is set to Cleared and can no\
+          \ longer be set."
+      alarmedObjectType:
+        type: "string"
+        description: "The type (class) of the object associated with the event. "
+      alarmedObject:
+        $ref: "#/definitions/AlarmedObject"
+      sourceSystemId:
+        type: "string"
+      alarmDetails:
+        type: "string"
+        description: "Contains further information on the alarm"
+      state:
+        type: "string"
+        description: "Defines the alarm state during its life cycle RAISED, UPDATED\
+          \ or CLEARED"
+      alarmRaisedTime:
+        type: "string"
+        format: "date-time"
+        description: "Indicates the time (as a date + time) at which the alarm occurred\
+          \ at its source."
+      alarmChangedTime:
+        type: "string"
+        format: "date-time"
+        description: "Indicates the last date and time when the alarm is changed on\
+          \ the alarm-owning system. Any change to the alarm whether coming from the\
+          \ alarmed resource, or triggered by a change from the client is changing\
+          \ this time."
+      alarmClearedTime:
+        type: "string"
+        format: "date-time"
+        description: "Indicates the time (as a date + time) at which the alarm is\
+          \ cleared at the source. "
+      proposedRepairedActions:
+        type: "string"
+        description: "Indicates proposed repair actions, if known to the system emitting\
+          \ the alarm."
+      alarmReportingTime:
+        type: "string"
+        format: "date-time"
+        description: "Indicates the time (as a date + time) at which the alarm was\
+          \ reported by the owning OSS. It might be different from the alarmRaisedTime.\
+          \ For instance, if the alarm list is maintained by an EMS, the alarmRaisedtime\
+          \ would be the time the alarm\n  was detected by the NE, while the alarmReportingTime\
+          \ would be the time this alarm was stored in the alarm list of the EMS."
+      ackState:
+        type: "string"
+        description: "Provides the Acknowledgement State of the alarm ACKNOWLEDGED,\
+          \ UNACKNOWLEDGED"
+      ackUserId:
+        type: "string"
+        description: "Provides the id of the user who has last changed the ack state\
+          \ of the alarm, i.e. acknowledged or unacknowledged the alarm."
+      ackSystemId:
+        type: "string"
+        description: "Provides the name of the system that last changed the ackState\
+          \ of an alarm, i.e. acknowledged or unacknowledged the alarm."
+      clearUserId:
+        type: "string"
+        description: "Provides the id of the user who invoked the alarmCleared operation"
+      clearSystemId:
+        type: "string"
+        description: "Provides the id of the system where the user who invoked the\
+          \ alarmCleared operation is located. "
+      plannedOutageIndicator:
+        type: "string"
+        description: "Indicates that the Managed Object (related to this alarm) is\
+          \ in planned outage (in planned maintenance, or out-of-service). "
+      alarmEscelation:
+        type: "string"
+        description: "Indicates if this alarm has been escalated or not. "
+      serviceAffecting:
+        type: "string"
+        description: "Indicates whether the alarm affects service or not. "
+      affectedService:
+        type: "array"
+        items:
+          $ref: "#/definitions/AffectedService"
+      isRootCause:
+        type: "string"
+        description: "Indicates whether the alarm is a root cause alarm.. "
+      correlatedAlarm:
+        type: "array"
+        items:
+          $ref: "#/definitions/CorrelatedAlarm"
+      parentAlarm:
+        type: "array"
+        items:
+          $ref: "#/definitions/ParentAlarm"
+      crossedThresholdInformation:
+        $ref: "#/definitions/CrossedThresholdInformation"
+      comments:
+        type: "array"
+        items:
+          $ref: "#/definitions/Comments"
+    description: "A alarm base entity containing alarm rules.This entity  is  mandatoryThis\
+      \ entity  is  extendableThis entity   does not generate Object Creation notifications\
+      \ (NA)This entity   generates Object Deletion notificationsThis entity   does\
+      \ not generate Object Discovery notifications (NA)This entity supports the Common\
+      \ Get Operation.This entity supports the Common Get Multiple Operation.This\
+      \ entity supports the Common Create Operation.This entity supports the Common\
+      \ Delete Operation."
+  Comments:
+    type: "object"
+    properties:
+      userId:
+        type: "string"
+        description: "Indicates the user commenting the alarm."
+      time:
+        type: "string"
+        format: "date-time"
+        description: "Indicates the time commenting the alarm"
+      systemId:
+        type: "string"
+        description: "Indicates the system identifier on which the client set the\
+          \ comment."
+      comment:
+        type: "string"
+        description: "Indicates the text of the comment."
+    description: "Indicates the comments entered on the alarm."
+  CrossedThresholdInformation:
+    type: "object"
+    properties:
+      thresholdId:
+        type: "string"
+        description: "Indicates the threshold id that caused the alarm."
+      thresholdRef:
+        type: "string"
+      indicatorName:
+        type: "string"
+        description: "Indicates the name of indicator which crossed the threshold."
+      observedValue:
+        type: "string"
+        description: "Indicates the value of the indicator which crossed the threshold."
+      indicatorUnit:
+        type: "string"
+        description: "Indicates the unit of the measurement of the indicator corresponding\
+          \ to the threshold that has been crossed."
+      granularity:
+        type: "string"
+        description: "Indicates the granularity at which the indicator is evaluated\
+          \ for threshold crossing"
+      direction:
+        type: "string"
+        description: "Indicates the threshold crossing direction: up or down."
+      thresholdCrossingDescription:
+        type: "string"
+        description: "Indicates further information on the threshold crossing alarm."
+    description: "Identifies the details of the threshold that has been crossed."
+  ParentAlarm:
+    type: "object"
+    properties:
+      href:
+        type: "string"
+      id:
+        type: "string"
+    description: "Indicates the alarms attached to this alarm as parent alarms from\
+      \ a correlation point of view. "
+  CorrelatedAlarm:
+    type: "object"
+    properties:
+      href:
+        type: "string"
+      id:
+        type: "string"
+    description: "Indicates the alarms attached to this alarm as correlated alarms\
+      \ from a correlation point of view. An alarm can be correlated to one or more\
+      \ underlying alarms. There might be multiple levels of alarm correlation and\
+      \ an underlying alarm in one relation can be itself a parent alarm for other\
+      \ underlying alarms."
+  AffectedService:
+    type: "object"
+    properties:
+      href:
+        type: "string"
+        description: "Provides the identifier of the service affected by the alarm"
+      id:
+        type: "string"
+    description: ""
+  AlarmedObject:
+    type: "object"
+    properties:
+      href:
+        type: "string"
+        description: "A reference to the alarm"
+      id:
+        type: "string"
+        description: "The identifier of the object associated with the event"
+    description: ""
+  Hub:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      callback:
+        type: "string"
+      query:
+        type: "string"
