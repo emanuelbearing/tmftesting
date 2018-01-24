@@ -4,7 +4,7 @@ info:
   description: ""
   version: "2.0.0"
   title: "API Alarm"
-host: "alarm.mybluemix.net"
+host: "alarmtmforum.mybluemix.net"
 basePath: "/docs"
 schemes:
 - "https"
